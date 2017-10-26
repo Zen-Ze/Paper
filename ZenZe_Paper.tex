@@ -179,7 +179,34 @@ A second goal, apart from gaining knowledge, is to relax the user through playin
 \section{Literature review}
 \section{Originality}
 \section{Key Design}
+\begin{figure*}
+\label{fig:storyboard}
+	\centering
+	\includegraphics[width=7in]{figures/UIDesign/Storyboard.png}
+	\caption{A storyboard of the app created with Balsamiq Mockups}
+\end{figure*}
+The application consists of seven different views in total. An overwiew of those views and the transitions between them is given in figure \ref{fig:storyboard}. At the beginning you see a \textbf{main menu} with the options to start the game, read the instructions on how to play and adapt some settings.
+
+The \textbf{game view} contains the current level and some vital information for the gameplay like health and available attacks. The game dynamics are as follows: The state of the game changes based on the weather. In the current configuration it supports the three states sunny, rainy and snowy. The user can move the avatar by tilting the mobile device to the left or right. To jump the left side of the screen has to be touched and to attack the right side. The height of the jump can be controlled by the length of the touch, but is limited to a maximum jumptime.
+
+The player has one standard attack, but can gain special attacks by defeating enemies. These special attacks come in three categories reflecting the three game states and give the player a certain bonus or malus depending on the type of enemie it is used against as shown in figure \ref{fig:attacks}. As these attacks are more usefull against enemies in a different state, the player is encouraged to wait for the weather status to change throughout the level.
+
+\begin{figure}
+\label{fig:attacks}
+	\centering
+	\includegraphics[width=0.9\columnwidth]{figures/attacks.png}
+\end{figure}
+
+During a level the player can also collect various pick-up items. Whenever a new item or enemy is encountered a message pops up giving the user the option to view more detailed information about this item or enemy. By clicking onto \textit{some symbol next to the players health bar} the user can review statistics like which items he/she already collected.
+
+TODO: Stats view description
+
+TODO: Info view description
+
+TODO: Share view description
+
 \section{Implementation}
+For the full source code please refer to \url{https://github.com/Zen-Ze/ZenZe}.
 \section{Project closeout}
 
 %\begin{figure}
