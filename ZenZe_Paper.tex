@@ -139,7 +139,7 @@
     	\email{annalena.bloch@tum.de}}\\
 	\alignauthor{Timothee Craig\\
     	\affaddr{INSA Lyon, France}\\
-    	\email{mail}}\\
+    	\email{timothee.craig@insa-lyon.fr}}\\
     \alignauthor{Shivam Sachdeva\\
     	\affaddr{someUniversity, India}\\
     	\email{mail}}\\
@@ -195,7 +195,7 @@ The application consists of seven different views in total. An overwiew of those
 
 The \textbf{game view} contains the current level and some vital information for the gameplay like health and available attacks. The game dynamics are as follows: The state of the game changes based on the weather. In the current configuration it supports the three states sunny, rainy and snowy. The user can move the avatar by tilting the mobile device to the left or right. To jump the left side of the screen has to be touched and to attack the right side. The height of the jump can be controlled by the length of the touch, but is limited to a maximum jumptime.
 
-The player has one standard attack, but can gain special attacks by defeating enemies. These special attacks come in three categories reflecting the three game states and give the player a certain bonus or malus depending on the type of enemie it is used against as shown in figure \ref{fig:attacks}. As these attacks are more usefull against enemies in a different state, the player is encouraged to wait for the weather status to change throughout the level.
+The player has one standard attack, but can gain special attacks by defeating enemies. These special attacks come in three categories reflecting the three game states and give the player a certain bonus or malus depending on the type of enemy it is used against as shown in figure \ref{fig:attacks}. As these attacks are more usefull against enemies in a different state, the player is encouraged to wait for the weather status to change throughout the level.
 
 \begin{figure}
 \label{fig:attacks}
@@ -212,7 +212,26 @@ TODO: Info view description
 TODO: Share view description
 
 \section{Implementation}
+
+This section will go more in detail on what we've built and how we've built it in regards to the Zen-Ze application. We won't cover the code in detail but we will focus on architecture and design.
+
 For the full source code please refer to \url{https://github.com/Zen-Ze/ZenZe}.
+
+\subsection{Key Features \& Technical Achievements}
+Our application being a game, there are quite a few aspects we had to cover in terms of Game Design. For this ANNALENA SPEAK ABOUT IT HERE PLS (speak about sensors usage, the game engine you built...). 
+
+Additionally, we decided to implement a database with our application. We wanted to have a simple and effective way of storing data from the application directly on the phone. For this we used the built-in SQLITE database that comes with Android. To implement this database in our application, we created a back-end package and added a library (the room persistence library \url{https://developer.android.com/topic/libraries/architecture/room.html}) to the project. The library in itself helped us create an interface between the Java application and the SQL. In this library, we define models (named entities), which are Java objects to which the data from the tables in the database will be transformed, but also Daos which are interfaces to create CRUD (create, read, update, delete) operations for our objects in the database. As for the database scheme, please find it enclosed at the end of the document.
+
+Another key feature is the use of the OpenWeatherMap API. Our application relies on the weather and displays graphics based off it. For this we thus had to use some sort of service which would give us the weather and from this service inform the application. We used the OpenWeatherMap API for that as it's an API we had used in class and it seemed to fit our needs. One of the limitations with this API is though that we will not be able to publish the application to the play store, unless we pay OpenWeatherMap to be allowed to do more daily queries to the API. 
+
+Finally, a key feature we added was the GPS. This was required for the weather service to be called properly as we queried the weather using the longitude and latitude of a location. For this we used the google play services library (\url{https://developer.android.com/training/location/index.html}) in order to retrieve a Location object of the last known location when the app is launched. 
+
+\subsection{Key Lessons}
+In this project, we have learned many things, in terms of coding for android, designing an application from scratch, understanding the concepts behind android... Out of all we learned, there are noticeable lessons we've gathered from this project. 
+
+The first noticeable one was to comment our code properly so others could read and understand it, either with checking the files or by reading through the generated documentation. Additionally, we've learned to work as a team on different parts of the application, thus communication was key throughout the project.
+Another part in which we learned a lot was with the overall design thinking process with each members finding 10 different ideas and gathering them to find the best one of them all.
+
 \section{Project closeout}
 
 %\begin{figure}
